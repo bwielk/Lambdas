@@ -44,8 +44,12 @@ public class Lambda {
 //        employees.get(0).getName(), employees.get(1).getName());
 //        System.out.println(aString);
 
-        UpperConcat uc = ((s1, s2) -> s1.toUpperCase() + s2.toUpperCase());
+        UpperConcat uc = ((s1, s2) -> {
+            String result = s1.toUpperCase() + s2.toUpperCase();
+            return result;
+        });
         System.out.println(doStringStuff(uc, employees.get(1).getName(), employees.get(2).getName()));
+        System.out.println(new AnotherClass().doSomething());
     }
 
     public static final String doStringStuff(UpperConcat u1, String s1, String s2){
@@ -81,4 +85,25 @@ class Employee {
 
 interface UpperConcat {
     public String upperAndConcat(String s1, String s2);
+}
+
+class AnotherClass {
+    public String doSomething(){
+        UpperConcat uc = (s1, s2) -> {
+            System.out.println("The lambda expression's class is " + getClass().getSimpleName());
+            String result = s1.toUpperCase() + s2.toUpperCase();
+            return result;
+        };
+
+        System.out.println("The AnotherClass' name is " + getClass().getSimpleName());
+        return Lambda.doStringStuff(uc, "String1", "String2");
+//        System.out.println("The name of the class is " + getClass().getSimpleName());
+//        return Lambda.doStringStuff(new UpperConcat() {
+//            @Override
+//            public String upperAndConcat(String s1, String s2) {
+//                System.out.println("The name of the anonymous class is " + getClass().getSimpleName());
+//                return s1.toUpperCase() + s2.toUpperCase();
+//            }
+//        }, "Beyonce ", "Knowles");
+    }
 }
