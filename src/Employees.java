@@ -65,13 +65,18 @@ public class Employees {
             return e.getName().substring(e.getName().indexOf(' ') + 1);
         };
 
-        System.out.println(getLastName.apply(employees.get(1)));
-
         Function<Employee, String> getFirstName = (Employee e) -> {
             return e.getName().substring(0, e.getName().indexOf(' '));
         };
 
-        System.out.println(getFirstName.apply(employees.get(1)));
+        Random randomBoolean = new Random();
+        for(Employee e : employees){
+            if(randomBoolean.nextBoolean()){
+                System.out.println("TRUE : " + getEmployeeDetails(getFirstName, getLastName, e));
+            }else{
+                System.out.println("FALSE : " + getEmployeeDetails(getLastName, getFirstName, e));
+            }
+        }
     }
 
     private static void printEmployeesByAge(List<Employee> employees, String ageText, Predicate<Employee> condition){
@@ -82,5 +87,9 @@ public class Employees {
                 System.out.println(e.getName());
             }
         }
+    }
+
+    private static String getEmployeeDetails(Function<Employee, String> getFirstName, Function<Employee, String> getLastName, Employee e){
+        return getFirstName.apply(e) + " " + getLastName.apply(e);
     }
 }
