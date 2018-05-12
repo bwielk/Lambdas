@@ -22,27 +22,17 @@ public class Lambda {
         employees.add(employee3);
         employees.add(employee4);
 
-//        Collections.sort(employees, new Comparator<Employee>() {
-//            @Override
-//            public int compare(Employee employee1, Employee employee2) {
-//                return Integer.valueOf(employee2.getAge()).compareTo(Integer.valueOf(employee1.getAge()));
-//            }
-//        });
+        employees.forEach(employee -> {
+            System.out.println(employee.getName());
+            System.out.println(employee.getAge());
+        });
+
         Collections.sort(employees, (e1, e2) ->
             e1.getName().compareTo(e2.getName()));
 
         for(Employee e : employees){
             System.out.println(e.getName() + " age => " + e.getAge());
         }
-
-//        String aString = doStringStuff(new UpperConcat() {
-//            @Override
-//            public String upperAndConcat(String s1, String s2) {
-//                return s1.toUpperCase() + s2.toUpperCase();
-//            }
-//        },
-//        employees.get(0).getName(), employees.get(1).getName());
-//        System.out.println(aString);
 
         UpperConcat uc = ((s1, s2) -> {
             String result = s1.toUpperCase() + s2.toUpperCase();
@@ -88,6 +78,7 @@ interface UpperConcat {
 }
 
 class AnotherClass {
+
     public String doSomething(){
         UpperConcat uc = (s1, s2) -> {
             System.out.println("The lambda expression's class is " + getClass().getSimpleName());
@@ -97,13 +88,19 @@ class AnotherClass {
 
         System.out.println("The AnotherClass' name is " + getClass().getSimpleName());
         return Lambda.doStringStuff(uc, "String1", "String2");
-//        System.out.println("The name of the class is " + getClass().getSimpleName());
-//        return Lambda.doStringStuff(new UpperConcat() {
-//            @Override
-//            public String upperAndConcat(String s1, String s2) {
-//                System.out.println("The name of the anonymous class is " + getClass().getSimpleName());
-//                return s1.toUpperCase() + s2.toUpperCase();
-//            }
-//        }, "Beyonce ", "Knowles");
+    }
+
+    public void printValue(){
+        int number = 25;
+        Runnable r = () -> {
+            try{
+                Thread.sleep(5000);
+            }catch(InterruptedException e){
+               e.printStackTrace();
+            }
+            System.out.println("The value is " + number);
+        };
+
+        new Thread(r).start();
     }
 }
