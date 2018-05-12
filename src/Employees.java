@@ -1,10 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.function.Function;
-import java.util.function.IntPredicate;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 public class Employees {
 
@@ -77,6 +74,21 @@ public class Employees {
                 System.out.println("FALSE : " + getEmployeeDetails(getLastName, getFirstName, e));
             }
         }
+
+        Function<Employee, String> upperCase = employee -> employee.getName().toUpperCase();
+        Function<String, String> firstName = name -> name.substring(0, name.indexOf(' '));
+        Function chainedFunction = upperCase.andThen(firstName);
+        System.out.println(chainedFunction.apply(employees.get(0)));
+
+        BiFunction<String, Employee, String> concateAge = (String name, Employee e) -> {
+            return name.concat(" " + e.getAge());
+        };
+
+        String upperName = upperCase.apply(employees.get(0));
+        System.out.println(concateAge.apply(upperName, employees.get(0)));
+
+        IntUnaryOperator incBy5 = i -> i*5;
+        System.out.println(incBy5.applyAsInt(10));
     }
 
     private static void printEmployeesByAge(List<Employee> employees, String ageText, Predicate<Employee> condition){
