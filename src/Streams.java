@@ -1,6 +1,11 @@
+import sun.rmi.server.InactiveGroupException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Streams {
@@ -55,25 +60,65 @@ public class Streams {
         Employee employee2 = new Employee("Tomasso Angelo", 32);
         Employee employee3 = new Employee("Simon Smith", 43);
         Employee employee4 = new Employee("Bartolomeu Diaz", 33);
-        Employee employee5 = new Employee("Christopher Baileys", 26);
+        Employee employee5 = new Employee("Christopher Baileys", 21);
         Employee employee6 = new Employee("Christian Odiour", 39);
+        Employee employee7 = new Employee("Carlie Simonne", 43);
+        Employee employee8 = new Employee("Sasha Struninew", 50);
+        Employee employee9 = new Employee("Stanley Dido", 33);
 
         Department hr = new Department("Human Resources");
         hr.addEmployee(employee1);
         hr.addEmployee(employee2);
         hr.addEmployee(employee3);
+        hr.addEmployee(employee7);
 
         Department ux = new Department("Research and Design");
         ux.addEmployee(employee4);
         ux.addEmployee(employee5);
         ux.addEmployee(employee6);
+        ux.addEmployee(employee8);
+        ux.addEmployee(employee9);
 
         List<Department> departments = new ArrayList<>();
         departments.add(hr);
         departments.add(ux);
 
+        System.out.println("/////////////////////PRINTING ALL THE EMPLOYEES////////////////////////////////");
         departments.stream()
                 .flatMap(department -> department.getEmployees().stream())
                 .forEach(System.out::println);
+
+        System.out.println("/////////////////////PRINTING ALL THE EMPLOYEES OVER 30////////////////////////////////");
+        //collects items from a stream to create a new list/collection
+        List<Employee> streamToList = departments.stream()
+                .flatMap(department -> department.getEmployees().stream())
+                .filter(employee -> employee.getAge() >= 30)
+                .collect(Collectors.toList());
+        for(Employee e : streamToList ){
+            System.out.println(e.getName() + " AGE => " + e.getAge());
+        }
+
+        System.out.println("/////////////////////PRINTING ALL THE EMPLOYEES UNDER 30////////////////////////////////");
+        //collects items from a stream to create a new list/collection - with specific streams of commands
+        List<Employee> streamToArrayList = departments.stream()
+                .flatMap(department -> department.getEmployees().stream())
+                .filter(employee -> employee.getAge() < 30)
+                .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+        for(Employee e : streamToArrayList ){
+            System.out.println(e.getName() + " AGE => " + e.getAge());
+        }
+
+        System.out.println("/////////////////////PRINTING ALL THE EMPLOYEES GROUPED BY AGE////////////////////////////////");
+        Map<Integer, List<Employee>> groupedByAge = departments.stream()
+                .flatMap(department -> department.getEmployees().stream())
+                .collect(Collectors.groupingBy(employee -> employee.getAge()));
+
+        System.out.println(groupedByAge.toString());
+
+        System.out.println("/////////////////////PRINTING THE YOUNGEST EMPLOYEE////////////////////////////////");
+        departments.stream()
+                .flatMap(department -> department.getEmployees().stream())
+                .reduce((e1, e2) -> e1.getAge() < e2.getAge() ? e1 : e2 )
+                .ifPresent(System.out::println);
     }
 }
