@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a1fbd7c7-4a7f-4e60-b73a-072b1dce8bf5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Employees.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employees.java" afterDir="false" />
-    </list>
+    <list default="true" id="a1fbd7c7-4a7f-4e60-b73a-072b1dce8bf5" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +15,8 @@
       <file leaf-file-name="Lambda.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Lambda.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="27" column="11" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="27" selection-end-column="11" />
+            <state relative-caret-position="102">
+              <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -26,15 +24,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Employees.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Employees.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Employees.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="90" column="47" selection-start-line="90" selection-start-column="47" selection-end-line="90" selection-end-column="47" />
+            <state relative-caret-position="146">
+              <caret line="95" column="39" lean-forward="true" selection-start-line="95" selection-start-column="39" selection-end-line="95" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1129#1130#0" expanded="true" />
                 <element signature="e#1173#1174#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Streams.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Streams.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="333">
+              <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -76,6 +86,7 @@
         <option value="$PROJECT_DIR$/src/LambdaMyExamples.java" />
         <option value="$PROJECT_DIR$/src/Lambda.java" />
         <option value="$PROJECT_DIR$/src/Employees.java" />
+        <option value="$PROJECT_DIR$/src/Streams.java" />
       </list>
     </option>
   </component>
@@ -129,7 +140,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Employees">
+  <component name="RunManager" selected="Application.Streams">
     <configuration name="Employees" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Employees" />
       <module name="lambdas" />
@@ -142,6 +153,11 @@
     </configuration>
     <configuration name="LambdaMyExamples" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="LambdaMyExamples" />
+      <module name="lambdas" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="Streams" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Streams" />
       <module name="lambdas" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -190,9 +206,11 @@
       <item itemvalue="Application.Lambda" />
       <item itemvalue="Application.LambdaMyExamples" />
       <item itemvalue="Application.Employees" />
+      <item itemvalue="Application.Streams" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Streams" />
         <item itemvalue="Application.Employees" />
         <item itemvalue="Application.Lambda" />
         <item itemvalue="Application.LambdaMyExamples" />
@@ -281,8 +299,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Lambda.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="27" column="11" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="27" selection-end-column="11" />
+        <state relative-caret-position="102">
+          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -298,12 +316,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Employees.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="90" column="47" selection-start-line="90" selection-start-column="47" selection-end-line="90" selection-end-column="47" />
+        <state relative-caret-position="146">
+          <caret line="95" column="39" lean-forward="true" selection-start-line="95" selection-start-column="39" selection-end-line="95" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1129#1130#0" expanded="true" />
             <element signature="e#1173#1174#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Streams.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
