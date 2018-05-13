@@ -7,6 +7,8 @@ public class Streams {
 
     public static void main(String[] args) {
 
+        //BINGO NUMBERS PROJECT
+
         List<String> bingoNumbers = Arrays.asList(
                 "N30", "N45", "N46",
                 "E12", "E14", "E30",
@@ -47,6 +49,31 @@ public class Streams {
                 .peek(System.out::println)
                 .count());
 
+        //DEPARTMENTS PROJECT
 
+        Employee employee1 = new Employee("Blazej Wielk", 21);
+        Employee employee2 = new Employee("Tomasso Angelo", 32);
+        Employee employee3 = new Employee("Simon Smith", 43);
+        Employee employee4 = new Employee("Bartolomeu Diaz", 33);
+        Employee employee5 = new Employee("Christopher Baileys", 26);
+        Employee employee6 = new Employee("Christian Odiour", 39);
+
+        Department hr = new Department("Human Resources");
+        hr.addEmployee(employee1);
+        hr.addEmployee(employee2);
+        hr.addEmployee(employee3);
+
+        Department ux = new Department("Research and Design");
+        ux.addEmployee(employee4);
+        ux.addEmployee(employee5);
+        ux.addEmployee(employee6);
+
+        List<Department> departments = new ArrayList<>();
+        departments.add(hr);
+        departments.add(ux);
+
+        departments.stream()
+                .flatMap(department -> department.getEmployees().stream())
+                .forEach(System.out::println);
     }
 }
